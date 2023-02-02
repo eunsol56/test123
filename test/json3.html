@@ -1,0 +1,361 @@
+<style>
+    *{
+        text-align: center;
+    }
+    div{
+        overflow: auto;
+    }
+    .ltemList{
+        border: 1px solid black;
+        width: 10%;
+        height: 600px;
+        float:left;
+        margin-right: 10px;
+    }
+    .calendar{
+        float:left;
+        width: 10%;
+        height: 301px;
+    }
+    .con1{
+        border: 1px solid black;
+        height: 25px;
+    }
+    .con2{
+        border: 1px solid  rgba(0, 0, 0, 0.1);
+        height: 25px;
+        overflow: visible;
+    }
+    .draggable{
+        height: 25px;
+        background-color: #69a3d3;
+        /* resize: vertical; */
+        border-radius: 10px;
+        font-size: 12px;
+        margin: 2px;
+    }
+    .addLun{
+        background: rgb(235, 198, 33);
+    }
+    .addSet{
+        background-color: rgb(124, 124, 212);
+    }
+    .addDin{
+        background-color: rgb(243, 55, 30);
+    }
+    .addItem{
+        background-color: rgb(218, 92, 155);
+    }
+</style>
+<div>
+    <span>내용</span>
+    <input type="text" name="content" id="content">
+    <button onclick="addBtn()">추가</button>
+    <button onclick="lastWeek()">지난주</button>
+    <button onclick="nextWeek()">다음주</button>
+    <br>
+    <button onclick="addLun()">점심</button>
+    <button onclick="addSet()">집합</button>
+    <button onclick="addDin()">저녁</button>
+</div>
+
+
+<div class="container ltemList">
+    <div class="draggable" draggable="true" id="item1">씬1 한강</div>
+    <div class="draggable" draggable="true" id="item2">씬2 우리집</div>
+    <div class="draggable" draggable="true" id="item3">씬3 롯데월드</div>
+    <div class="draggable" draggable="true" id="item4">씬4 회사</div>
+    <div class="draggable" draggable="true" id="item5">씬5 광주</div>
+    <div class="draggable" draggable="true" id="item6">씬6 편의점</div>
+    <div class="draggable" draggable="true" id="item7">씬7 학원</div>
+    <div class="draggable" draggable="true" id="item8">씬8 롯데리아</div>
+</div>
+<div class=" calendar">
+    <div class=" con1">시간/날짜</div>
+    <div class=" con1">8 ~ 9 </div>
+    <div class=" con1">9 ~ 10</div>
+    <div class=" con1">10 ~ 11</div>
+    <div class=" con1">11 ~ 12</div>
+    <div class=" con1">12 ~ 13</div>
+    <div class=" con1">13 ~ 14</div>
+    <div class=" con1">14 ~ 15</div>
+    <div class=" con1">15 ~ 16</div>
+    <div class=" con1">16 ~ 17</div>
+</div>
+<div class=" calendar">
+    <div class="containerTitle con2" id="day1"></div>
+    <div class="container con2 con2_1" id="con1_1"></div>
+    <div class="container con2 con2_2" id="con1_2"></div>
+    <div class="container con2 con2_3" id="con1_3"></div>
+    <div class="container con2 con2_4" id="con1_4"></div>
+    <div class="container con2 con2_5" id="con1_5"></div>
+    <div class="container con2 con2_6" id="con1_6"></div>
+    <div class="container con2 con2_7" id="con1_7"></div>
+    <div class="container con2 con2_8" id="con1_8"></div>
+    <div class="container con2 con2_9" id="con1_9"></div>
+</div>
+<div class=" calendar">
+    <div class="containerTitle con2" id="day2"></div>
+    <div class="container con2 con2_1" id="con2_1"></div>
+    <div class="container con2 con2_2" id="con2_2"></div>
+    <div class="container con2 con2_3" id="con2_3"></div>
+    <div class="container con2 con2_4" id="con2_4"></div>
+    <div class="container con2 con2_5" id="con2_5"></div>
+    <div class="container con2 con2_6" id="con2_6"></div>
+    <div class="container con2 con2_7" id="con2_7"></div>
+    <div class="container con2 con2_8" id="con2_8"></div>
+    <div class="container con2 con2_9" id="con2_9"></div>
+</div>
+<div class=" calendar">
+    <div class="containerTitle con2" id="day3"></div>
+    <div class="container con2 con2_1" id="con3_1"></div>
+    <div class="container con2 con2_2" id="con3_2"></div>
+    <div class="container con2 con2_3" id="con3_3"></div>
+    <div class="container con2 con2_4" id="con3_4"></div>
+    <div class="container con2 con2_5" id="con3_5"></div>
+    <div class="container con2 con2_6" id="con3_6"></div>
+    <div class="container con2 con2_7" id="con3_7"></div>
+    <div class="container con2 con2_8" id="con3_8"></div>
+    <div class="container con2 con2_9" id="con3_9"></div>
+</div>
+<div class=" calendar">
+    <div class="containerTitle con2" id="day4"></div>
+    <div class="container con2 con2_1" id="con4_1"></div>
+    <div class="container con2 con2_2" id="con4_2"></div>
+    <div class="container con2 con2_3" id="con4_3"></div>
+    <div class="container con2 con2_4" id="con4_4"></div>
+    <div class="container con2 con2_5" id="con4_5"></div>
+    <div class="container con2 con2_6" id="con4_6"></div>
+    <div class="container con2 con2_7" id="con4_7"></div>
+    <div class="container con2 con2_8" id="con4_8"></div>
+    <div class="container con2 con2_9" id="con4_9"></div>
+</div>
+<div class=" calendar">
+    <div class="containerTitle con2" id="day5"></div>
+    <div class="container con2 con2_1" id="con5_1"></div>
+    <div class="container con2 con2_2" id="con5_2"></div>
+    <div class="container con2 con2_3" id="con5_3"></div>
+    <div class="container con2 con2_4" id="con5_4"></div>
+    <div class="container con2 con2_5" id="con5_5"></div>
+    <div class="container con2 con2_6" id="con5_6"></div>
+    <div class="container con2 con2_7" id="con5_7"></div>
+    <div class="container con2 con2_8" id="con5_8"></div>
+    <div class="container con2 con2_9" id="con5_9"></div>
+</div>
+<div class=" calendar">
+    <div class="containerTitle con2" id="day6"></div>
+    <div class="container con2 con2_1" id="con6_1"></div>
+    <div class="container con2 con2_2" id="con6_2"></div>
+    <div class="container con2 con2_3" id="con6_3"></div>
+    <div class="container con2 con2_4" id="con6_4"></div>
+    <div class="container con2 con2_5" id="con6_5"></div>
+    <div class="container con2 con2_6" id="con6_6"></div>
+    <div class="container con2 con2_7" id="con6_7"></div>
+    <div class="container con2 con2_8" id="con6_8"></div>
+    <div class="container con2 con2_9" id="con6_9"></div>
+</div>
+<div class=" calendar">
+    <div class="containerTitle con2" id="day7"></div>
+    <div class="container con2 con2_1" id="con7_1"></div>
+    <div class="container con2 con2_2" id="con7_2"></div>
+    <div class="container con2 con2_3" id="con7_3"></div>
+    <div class="container con2 con2_4" id="con7_4"></div>
+    <div class="container con2 con2_5" id="con7_5"></div>
+    <div class="container con2 con2_6" id="con7_6"></div>
+    <div class="container con2 con2_7" id="con7_7"></div>
+    <div class="container con2 con2_8" id="con7_8"></div>
+    <div class="container con2 con2_9" id="con7_9"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+const draggables = document.querySelectorAll(".draggable");
+var containers = document.querySelectorAll(".container");
+var json = {};
+var date = new Date();
+var year = date.getFullYear();
+var month = date.getMonth() + 1;
+var day = date.getDate();
+var jsonNum = 0;
+var idVal = '';
+
+containerUpdate();
+
+for(var i = 1; i<=7; i++){// 오늘날짜를 기준으로 일주일 날짜를 불러옴
+    document.getElementById("day"+i).innerHTML = month + "/" + (day);
+    if(i!=7){
+        date.setDate(date.getDate()+1);
+        month = date.getMonth() + 1;
+        day = date.getDate();
+    }
+}
+addClassDrag();
+$(".calendar").on('dblclick', '.draggable', function() {// div를 더블클릭 할 경우 팝업창 띄우기
+    var thisDiv = $(this).parent().attr('id');
+    var thisText = $(this).text();
+    var jsonKey = Object.keys(json);
+    var jsonVal = Object.values(json);
+    
+    var userInput = prompt("예상 소요 시간을 적어주세요"+"");
+    thisDiv = thisDiv.split('_');
+    if(userInput!=null){
+        for(i=0; i<= jsonKey.length; i++){
+            if(jsonVal[i]==thisText){// 예상시간을 줄일경우를 대비해 해당 value를 모두 지워줌(null)
+                json[jsonKey[i]] = 'null';
+                $('#'+jsonKey[i]).css("background-color","#fff");
+            }
+        }
+    }
+    if(10-thisDiv[1]<userInput){
+        alert("최대"+(10-thisDiv[1])+"시간까지 입력하실 수 있습니다.");
+        var addTime = thisDiv[0]+'_'+thisDiv[1];
+        json[addTime]=idVal
+        addJson(addTime);
+    }else{
+        for(var i = 0; i<userInput; i++){
+            var addTime = thisDiv[0]+'_'+(parseInt(thisDiv[1])+i);
+            if(json[addTime]!='null'){
+                if(jsonVal[i]==thisText){// 예상시간을 줄일경우를 대비해 해당 value를 모두 지워줌(null)
+                    json[jsonKey[i]] = 'null';
+                    $('#'+jsonKey[i]).css("background-color","#fff");
+                }
+                alert("최대"+i+"시간까지 입력하실 수 있습니다.");
+                addTime = thisDiv[0]+'_'+thisDiv[1];
+                json[addTime]=idVal;
+                break;
+            }else{
+                json[addTime]=idVal;
+            }
+        }
+        addJson(addTime);
+    }
+    
+  
+});
+
+function lastWeek(){//지난주
+    date.setDate(date.getDate()-14);
+    for(var i = 1; i<=7; i++){
+        month = date.getMonth() + 1;
+        date.setDate(date.getDate()+1);
+        day = date.getDate();
+        document.getElementById("day"+i).innerHTML = month + "/" + day;
+    }
+}
+function nextWeek(){//다음주
+    for(var i = 1; i<=7; i++){
+        date.setDate(date.getDate()+1);
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        document.getElementById("day"+i).innerHTML = month + "/" + day;
+    }
+}
+
+function addClassDrag(){
+    var draggables = document.querySelectorAll(".draggable");
+    draggables.forEach(draggable => {
+        // 드래그 시작하면 dragging이라는 클래스를 줌
+        draggable.addEventListener("dragstart", () => {
+            draggable.classList.add("dragging");
+            var id = draggable.getAttribute('id');
+            var innerText = document.getElementById(id).innerText;//div 태그 사이의 데이터(씬 정보)를 가져옴
+            var jsonKey = Object.keys(json);
+            var jsonVal = Object.values(json);
+            for(i=0; i<= jsonKey.length; i++){
+                if(jsonVal[i]==innerText){// 이동을 시작하면 해당 value값 삭제(null)
+                    json[jsonKey[i]] = 'null';
+                    $('#'+jsonKey[i]).css("background-color","#fff");
+                }
+            }
+        });
+        // 드래그 끝나면 dragging이라는 클래스 삭제
+        draggable.addEventListener("dragend", () => {
+            draggable.classList.remove("dragging");
+            idVal  = draggable.textContent; // json에 값(value)을 넣어주기 위한 변수
+            containerUpdate();
+        });
+    });
+}
+// for(var i = 1; i <= 7; i++){ // json 공간할당
+//     for(var j = 1 ; j <= 9; j++){
+//         var idNum = 'con'+i+'_'+j;
+//         json[idNum] = 'null';
+//     }
+// }
+function containerUpdate(){
+    containers = document.querySelectorAll(".container");
+    containers.forEach(container => {
+        // json 공간할당 
+        var idName = container.getAttribute('id');
+        if(idName!=null){
+            json[idName] = 'null';
+        }
+        
+        container.addEventListener("dragover", e => { //드래그하면서 마우스가 대상 객체의 영역 위에 자리 잡고 있을 때 
+            e.preventDefault();
+            const afterElement = a(container, e.clientX);
+            const draggable = document.querySelector(".dragging");
+            if(container.classList.contains('container')){// 해당 div에 container라는 클래스가 있을 때에만 드래그가 되도록 함
+                container.insertBefore(draggable, afterElement);
+            }
+        });
+        container.addEventListener('dragend',() => { //드래그가 끝나면 해당 div에 다시 드래그 하지 못하도록 함(한칸에 하나의 div만 들어올 수 있도록)
+            container.classList.remove("container");
+            idName = container.getAttribute('id'); //드래그가 끝난 div의 id명을 가져옴
+            addJson(idName);
+
+        })
+        container.addEventListener('dragstart',() => { 
+            container.classList.add("container");
+        })
+    });
+
+}
+function addJson(key){//데이터를 json에 넣어줌 + css 변경 >> 드래그 할 경우
+    json[key] = idVal; //id명에 데이터(씬정보)를 넣어줌
+      
+    var jsonKey = Object.keys(json);
+    var jsonVal = Object.values(json);
+    for(i=0; i<= jsonKey.length; i++){
+        if(jsonVal[i]!='null'){// div가 있을때
+            $('#'+jsonKey[i]).css("background-color","#69a3d3");
+            $('#'+jsonKey[i]).removeClass("container");
+        }else{
+            // $('#'+jsonKey[i]).css("background-color","#fff");
+            $('#'+jsonKey[i]).addClass("container");
+        }
+    }
+    console.log(json);
+}
+
+// 추가버튼
+function addBtn(){
+    var content = document.getElementById("content").value;
+    $(".ltemList").append('<div class="draggable addItem"  id="addDiv'+jsonNum+'">'+content+'</div>');
+    $('.addItem').prop("draggable",true);
+    jsonNum++;
+    addClassDrag();
+}
+function addLun(){
+    $(".ltemList").append('<div class="draggable addLun" id="addDiv'+jsonNum+'">점심</div>');
+    $('.addLun').prop("draggable",true);
+    jsonNum++;
+    addClassDrag();
+}
+function addSet(){
+    $(".ltemList").append('<div class="draggable addSet"  id="addDiv'+jsonNum+'">집합</div>');
+    $('.addSet').prop("draggable",true);
+    jsonNum++;
+    addClassDrag();
+}
+function addDin(){
+    $(".ltemList").append('<div class="draggable addDin" id="addDiv'+jsonNum+'">저녁</div>');
+    $('.addDin').prop("draggable",true);
+    jsonNum++;
+    addClassDrag();
+}
+function a(b, c){
+     
+}
+
+</script>

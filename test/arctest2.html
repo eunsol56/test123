@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<style type="text/css">
+* {
+    cursor: none;
+}
+
+figure.mouse-pointer {
+
+    border-radius: 50%;
+   background-color: #FABD02;
+    width: 0.5em;
+    height: 0.5em;
+    position: absolute;
+    margin-left: -8px;
+    display: block;
+    pointer-events: none;
+   mix-blend-mode: difference;
+   z-index: 999;
+}
+
+
+</style>
+<canvas id="myCanvas" width="500" height="600" style="border:1px solid #d3d3d3;"></canvas>
+
+<script>
+$(function (){
+
+	 $(window).mousemove(function(event) {
+
+        $('.mouse-pointer').css({
+            'top' : event.pageY + 'px',
+            'left' : event.pageX + 'px'
+        });
+     });
+
+
+
+     $(window).mouseleave(function(e){
+     	$('.mouse-pointer').css({opacity: 0});
+     });
+     $(window).mouseenter(function(e){
+     	$('.mouse-pointer').css({opacity: 1});
+     });
+
+var canvas3 = document.getElementById("myCanvas");
+var c3 = canvas3.getContext( '2d' );
+
+var size = 400;
+var size2 = 10;
+var anid;
+var pos = 0;
+
+function animate3() {
+
+  	anid = requestAnimationFrame( animate3 );
+  	c3.clearRect( 0, 0 , canvas3.width, canvas3.height );
+  	if(size < canvas3.width)
+  		size++;
+  	else
+  		cancelAnimationFrame(anid);
+  	if(size2 < canvas3.width/10)
+  		size2++;
+  	if(pos <= 100)
+  		pos++;
+  	c3.beginPath();
+  	c3.fillStyle = "#000000";
+  	c3.arc( 0, 0,  size, 0, Math.PI * 2, false  );
+  	c3.stroke();
+  	c3.fill();
+
+  	c3.beginPath();
+	c3.fillStyle = "#FABD02";
+	c3.arc(470, 400, size2, 0, Math.PI * 2, false  ); // 나누기 10 모바일
+	c3.fill();
+
+	  		c3.font = "50px Arial";
+		c3.fillStyle = "#FABD02";
+		c3.fillText("LIKE", 100, pos);
+		c3.fillStyle = "#FFFFFF";
+		c3.fillText("VANILLA", pos, 150);
+}
+
+// Animate the Circle
+animate3();
+
+});
+
+</script>
+
+<!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
+    <g mask="url(&quot;#SvgjsMask1976&quot;)" fill="none">
+        <rect width="1440" height="560" x="0" y="0" fill="url(#SvgjsLinearGradient1977)"></rect>
+        <path d="M1056.17,660.553C1113.237,661.483,1156.426,612.936,1181.727,561.775C1204.075,516.586,1200.005,464.452,1174.718,420.84C1149.52,377.382,1106.392,346.388,1056.17,345.229C1003.946,344.024,953.214,369.529,927.751,415.141C902.851,459.745,913.821,512.533,937.505,557.795C963.506,607.484,1000.096,659.639,1056.17,660.553" fill="rgba(153, 169, 38, 0.4)" class="triangle-float3"></path>
+        <path d="M882.066,257.935C899.78,257.601,917.292,250.287,925.945,234.827C934.427,219.672,930.399,201.634,922.125,186.365C913.343,170.159,900.481,154.641,882.066,153.851C862.546,153.014,845.205,165.652,835.575,182.652C826.086,199.402,825.111,220.157,835.226,236.536C844.893,252.19,863.671,258.282,882.066,257.935" fill="rgba(153, 169, 38, 0.4)" class="triangle-float2"></path>
+        <path d="M774.34 357.04 a173.79 173.79 0 1 0 347.58 0 a173.79 173.79 0 1 0 -347.58 0z" fill="rgba(153, 169, 38, 0.4)" class="triangle-float2"></path>
+        <path d="M637.8 165.87 a168.96 168.96 0 1 0 337.92 0 a168.96 168.96 0 1 0 -337.92 0z" fill="rgba(153, 169, 38, 0.4)" class="triangle-float2"></path>
+        <path d="M1266.42 33.06 a134.34 134.34 0 1 0 268.68 0 a134.34 134.34 0 1 0 -268.68 0z" fill="rgba(153, 169, 38, 0.4)" class="triangle-float2"></path>
+    </g>
+    <defs>
+        <mask id="SvgjsMask1976">
+            <rect width="1440" height="560" fill="#ffffff"></rect>
+        </mask>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" gradientUnits="userSpaceOnUse" id="SvgjsLinearGradient1977">
+            <stop stop-color="rgba(14, 42, 71, 1)" offset="0"></stop>
+            <stop stop-color="rgba(255, 209, 0, 1)" offset="0"></stop>
+        </linearGradient> -->
+        <style>
+            @keyframes float1 {
+                0%{transform: translate(0, 0)}
+                50%{transform: translate(-10px, 0)}
+                100%{transform: translate(0, 0)}
+            }
+
+            .triangle-float1 {
+                animation: float1 5s infinite;
+            }
+
+            @keyframes float2 {
+                0%{transform: translate(0, 0)}
+                50%{transform: translate(-5px, -5px)}
+                100%{transform: translate(0, 0)}
+            }
+
+            .triangle-float2 {
+                animation: float2 4s infinite;
+            }
+
+            @keyframes float3 {
+                0%{transform: translate(0, 0)}
+                50%{transform: translate(0, -10px)}
+                100%{transform: translate(0, 0)}
+            }
+
+            .triangle-float3 {
+                animation: float3 6s infinite;
+            }
+        </style>
+    <!-- </defs>
+</svg> -->
+<figure class="mouse-pointer"></figure> 
+</body>
+</html>

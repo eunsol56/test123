@@ -1,0 +1,212 @@
+<style>
+    .container {
+        font-family: "Trebuchet MS", sans-serif;
+        display: flex;
+        width: 100%;
+        /* gap: 30px; */
+    }
+    .column {
+        flex-basis: 10%;
+        background: linear-gradient( to bottom, rgb(255, 255, 235), rgb(197, 92, 92) );
+        height: 850px;
+        padding: 5px;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    .dayTime{
+        width: 150px;
+
+    }
+    input{
+        width: 100px;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .calendar{
+        width: 50px;
+        height: 900px;
+        padding: 5px;
+        border-radius: 10px;
+        margin-top: 35px;
+    }
+    .calendar .con1{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        height: 40px;
+    }
+    /* .calendar .con1_1{
+        margin-top: 20px; 
+
+    } */
+     h1, .con1 {
+        text-align: center;
+        font-size: 22px;
+    }
+    .list-group-item {
+        background: rgb(240, 168, 127);
+        margin: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        resize: vertical;
+        height: 40px;
+    
+    }
+    .addLun{
+        background: rgb(235, 198, 33);
+    }
+    .addSet{
+        background-color: rgb(124, 124, 212);
+    }
+    .addDin{
+        background-color: rgb(243, 55, 30);
+    }
+    .addItem{
+        background-color: rgb(218, 92, 155);
+    }
+    .addBlank{
+        background-color: azure;
+    }
+    div{
+        overflow: auto;
+    }
+    
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div class="container">
+       <div>
+            <div draggable="false">
+                <span>내용</span>
+                <input type="text" name="content" id="content">
+                <button onclick="addBtn()">추가</button>
+                <br>
+                <button onclick="addLun()">점심</button>
+                <button onclick="addSet()">집합</button>
+                <button onclick="addDin()">저녁</button>
+            </div>
+            <div class="column" id="ltemList">
+                <div class="list-group-item" draggable="true" id="id1">씬 1 한강</div>
+                <div class="list-group-item" draggable="true">씬 2 우리집</div>
+                <div class="list-group-item" draggable="true">씬 3 롯데월드</div>
+                <div class="list-group-item" draggable="true">씬 4 회사</div>
+                <div class="list-group-item" draggable="true">씬 5 광주</div>
+                <div class="list-group-item" draggable="true">씬 6 편의점</div>
+                <div class="list-group-item" draggable="true">씬 7 학원</div>
+                <div class="list-group-item" draggable="true">씬 8 피자집</div>
+                <div class="list-group-item" draggable="true">씬 9 롯데리아</div>
+                <div class="list-group-item" draggable="true">씬 10 지하철 안</div>
+            </div>
+       </div>
+       <div class=" calendar">
+            <div class=" con1 con1_1">8 </div>
+            <div class=" con1">9</div>
+            <div class=" con1">10</div>
+            <div class=" con1">11</div>
+            <div class=" con1">12</div>
+            <div class=" con1">13</div>
+            <div class=" con1">14</div>
+            <div class=" con1">15</div>
+            <div class=" con1">16</div>
+            <div class=" con1">17</div>
+            <div class=" con1">18</div>
+            <div class=" con1">19</div>
+            <div class=" con1">20</div>
+            <div class=" con1">21</div>
+            <div class=" con1">22</div>
+            <div class=" con1">23</div>
+    </div>
+    <div>
+        <h1>11/1</h1>
+        <div class="column dayTime">
+       </div>
+    </div>
+    <div>
+        <h1>11/2</h1>
+        <div class="column dayTime">
+       </div>
+    </div>
+    <div>
+        <h1>11/3</h1>
+        <div class="column dayTime">
+       </div>
+    </div>
+    <div>
+        <h1>11/4</h1>
+        <div class="column dayTime">
+       </div>
+    </div>
+    <div>
+        <h1>11/5</h1>
+        <div class="column dayTime">
+       </div>
+    </div>
+    <div>
+        <h1>11/6</h1>
+        <div class="column dayTime">
+       </div>
+    </div>
+    <div>
+        <h1>11/7</h1>
+        <div class="column dayTime">
+       </div>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+const itsem = document.querySelector("#id1");
+
+
+
+// const item = document.querySelector("#id1");
+// item.addEventListener("mousemove", (e) => {
+//     var itemHeight =$('#id1').height();
+//     if(itemHeight<=40){
+//         itemHeight=40;
+//     }else if(itemHeight>40&&itemHeight<90){
+//         itemHeight=90;
+//     }else if(itemHeight>90&&itemHeight<140){
+//         itemHeight=140;
+//     }else{
+//         itemHeight=640;
+//     }
+//     $("#id1").css("height", (itemHeight));
+
+//     console.log($('#id1').height());
+
+
+// });
+
+
+
+const columns = document.querySelectorAll(".column");
+columns.forEach((column) => {
+    new Sortable(column, {
+    group: "shared",
+    animation: 500,
+    ghostClass: "blue-background-class"
+    });
+});
+function addBtn(){
+    var content = document.getElementById("content").value;
+    $("#ltemList").append('<div class="list-group-item addItem" draggable="true">'+content+'</div>');
+}
+function addLun(){
+    $("#ltemList").append('<div class="list-group-item addLun" draggable="true">점심</div>');
+}
+function addSet(){
+    $("#ltemList").append('<div class="list-group-item addSet" draggable="true">집합</div>');
+}
+function addDin(){
+    $("#ltemList").append('<div class="list-group-item addDin" draggable="true">저녁</div>');
+}
+function addBlank(){
+    $("#ltemList").append('<div class="list-group-item addBlank" draggable="true"></div>');
+}
+ </script>

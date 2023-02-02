@@ -1,0 +1,29 @@
+<button onclick="btnClick()">클릭</button>
+<script>
+var json = {1101:  ['null', 'null', '씬5 한강', 'null', 'null', 'null', 'null'  ],
+1102:  ['null', 'null', '씬7 학원', '씬7 학원', 'null', 'null', 'null'  ]};
+console.log(json)
+var json2 = {name: 'toran', age: 20};
+console.log('test: '+json2[0]);
+const person = {
+  name: 'Hanamon',
+  age: 20
+};
+json[1101][1] = {name: 'Hanamon',age: 20};
+console.log('1번: '+ Object.values(json)[0]) // -> 1
+
+function btnClick(){
+    json[1101][2] = {name: 'eunsol',age: 22};
+    console.log(json) // -> 2
+}
+
+json[1101][1] = {
+  num: '씬5',
+  name: '한강',
+  id: '115'
+};
+console.log(json)
+
+
+
+</script>

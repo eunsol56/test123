@@ -1,0 +1,23 @@
+
+<button class="btn" id="item1">1번</button>
+<button class="btn" id="item2">2번</button>
+<button class="btn" id="item3">3번</button>
+<button class="btn" id="item4">4번</button>
+<button class="btn" id="item5">5번</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    var jsonTest = {name: 'itemList', content: []};
+    console.log(jsonTest);
+    var num = 0;
+    $(".btn").click(function(){
+        var id_val  = $(this).attr('id');
+        jsonTest.content[num] = $(this).attr('id');
+        jsonTest[id_val] =  $(this).html();
+        console.log(jsonTest);
+        num++;
+    })
+
+
+</script>

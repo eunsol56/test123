@@ -1,0 +1,49 @@
+<input type="text" id="111">
+<input type="text" id="11221">
+<input type="text" id="13311">
+<input type="text" id="144411">
+<input type="text" id="155511">
+<input type="text" id="166611">
+<input type="text" id="177711">
+<input type="text" id="18811">
+<input type="text" id="1911">
+<input type="text" id="1000011">
+<input type="text" id="1000000011">
+<input type="text" id="1777711">
+<input type="text" id="15511">
+<button>1</button>
+<button>2</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    // document.onkeydown = checkKey;
+// function checkKey(e) {
+//     // console.log($('div.contentsDiv input').closest('div').attr('id'));
+//     e = e || window.event;
+//     if (e.keyCode == '40') { // 방향키(↓) 눌렀을 때
+//         console.log($(this).attr('id'));
+//         console.log($(this).index());
+//         // console.log($('input').index(this));
+//         console.log($('.mainDiv').length);
+//         // testDiv = document.getElementById('textBlock'+idNum);
+//         // const newNode = testDiv.cloneNode(true);
+//         // idNum++;
+//         // newNode.id = 'textBlock' + idNum;
+//         // testDiv.after(newNode);
+//     }
+// }
+
+  // 그런데 같은 레벨이 아니라 모든 button요소중 내가 몇번째 인지 찾을때에는??
+  $("button").click(function(event) {
+ 
+    var i = $(this).index();  
+    console.log(i);  // 0번째
+
+    var j = $("button").index(this);  // 존재하는 모든 버튼을 기준으로 index
+    console.log(j);
+    
+});
+
+$( 'input' ).change( function() {
+    console.log($(this).attr('id'))
+});
+</script>

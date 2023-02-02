@@ -1,0 +1,110 @@
+<style>
+    body {
+      background-color: #5d666bfa;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .body {
+      display: flex;
+    }
+    
+    button {
+      width: 70px;
+      height: 70px;
+      border: none;
+      border-radius: 8px;
+      margin: 12px;
+      cursor: move;
+      font-size: 30px;
+      background: #eaeaea4f;
+    }
+    div .item2{
+      width: 70px;
+      height: 70px;
+      border: none;
+      border-radius: 8px;
+      margin: 12px;
+      cursor: move;
+      font-size: 30px;
+      background: #eaeaea4f;  
+    }
+    .container {
+      margin: 10px;
+      padding: 10px;
+      background-color: #b5c1dc57;
+      border-radius: 8px;
+    }
+      
+      .container2 {
+      margin: 10px;
+      padding: 55px;
+      background-color: #b5c1dc57;
+      border-radius: 8px;
+    }
+    
+    
+    .draggable.dragging {
+      opacity: 0.5;
+    }
+    </style>
+    
+    <div class="body">
+      <div class="container" draggable="true">
+        <button class="draggable item1" draggable="true">🦊</button>
+      </div>
+      <div class="container">
+        <div class="draggable item2" draggable="true">🐼</div>
+      </div>
+      <div class="container2">
+      </div>
+    </div>
+    
+    
+    <script>
+    const item = document.querySelector(".item1");
+    const item2 = document.querySelector(".item2");
+
+    item.addEventListener("dragstart", (e) => {
+        console("드래그를 시작하면 발생하는 이벤트");
+    });
+    item2.addEventListener("dragstart", (e) => {
+    console("판다");
+    });
+ // 처음 드래그 요소가 위치하고 있는 좌측 박스 영역
+const container = document.querySelector(".container");
+
+container.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  //console.log(e);
+  //console("드래그 요소가 '첫' 번째 박스 영역에 계속 위치하면 발생하는 이벤트");
+});
+container.addEventListener("drop", (e) => {
+  e.preventDefault();
+  //console.log(e);
+  console("드래그 요소가 '첫' 번째 박스 영역에 드롭");
+});
+
+
+// 드래그 요소가 이동하여 위치할 우측 박스 영역
+const container2 = document.querySelector(".container2");
+
+container2.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  //console.log(e);
+  //console("드래그 요소가 '두' 번째 박스 영역에 계속 위치하면 발생하는 이벤트");
+});
+container2.addEventListener("drop", (e) => {
+  e.preventDefault();
+  //console.log(e);
+  console("드래그 요소가 '두' 번째 박스 영역에 드롭");
+});
+    function console(e) {
+      if(document.querySelectorAll('p').length === 20) {
+        document.querySelectorAll('p').forEach(e => e.remove())
+      }
+      const p = document.createElement('p');
+      p.textContent = e;
+      document.body.append(p);
+    }
+    </script>

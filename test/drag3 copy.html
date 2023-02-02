@@ -1,0 +1,295 @@
+<style>
+    *{
+        text-align: center;
+
+    }
+
+    div{
+    
+        overflow: auto;
+    }
+
+    .ltemList{
+        border: 1px solid black;
+        width: 10%;
+        height: 600px;
+        float:left;
+        margin-right: 10px;
+    }
+
+    .calendar{
+        float:left;
+        width: 10%;
+        height: 301px;
+    }
+    .con1{
+        border: 1px solid black;
+        height: 25px;
+    }
+    .con2{
+        border: 1px solid  rgba(0, 0, 0, 0.0);
+        height: 25px;
+        overflow: visible;
+    }
+    .draggable{
+        height: 25px;
+        background-color: #69a3d3;
+        /* resize: vertical; */
+        border-radius: 10px;
+        font-size: 12px;
+        margin: 2px;
+
+        
+    }
+    .addLun{
+        background: rgb(235, 198, 33);
+    }
+    .addSet{
+        background-color: rgb(124, 124, 212);
+    }
+    .addDin{
+        background-color: rgb(243, 55, 30);
+    }
+    .addItem{
+        background-color: rgb(218, 92, 155);
+    }
+</style>
+    <div>
+        <span>내용</span>
+        <input type="text" name="content" id="content">
+        <button onclick="addBtn()">추가</button>
+        <button onclick="lastWeek()">지난주</button>
+        <button onclick="nextWeek()">다음주</button>
+        <br>
+        <button onclick="addLun()">점심</button>
+        <button onclick="addSet()">집합</button>
+        <button onclick="addDin()">저녁</button>
+    </div>
+ 
+
+    <div class="container ltemList">
+        <div class="draggable" draggable="true" id="item1">씬1 한강</div>
+        <div class="draggable" draggable="true" id="item2">씬2 우리집</div>
+        <div class="draggable" draggable="true" id="item3">씬3 롯데월드</div>
+        <div class="draggable" draggable="true" id="item4">씬4 회사</div>
+        <div class="draggable" draggable="true" id="item5">씬5 광주</div>
+        <div class="draggable" draggable="true" id="item5">씬6 편의점</div>
+        <div class="draggable" draggable="true" id="item5">씬7 학원</div>
+        <div class="draggable" draggable="true" id="item5">씬8 롯데리아</div>
+    </div>
+    <div class=" calendar">
+        <div class=" con1">시간/날짜</div>
+        <div class=" con1">8 ~ 9 </div>
+        <div class=" con1">9 ~ 10</div>
+        <div class=" con1">10 ~ 11</div>
+        <div class=" con1">11 ~ 12</div>
+        <div class=" con1">12 ~ 13</div>
+        <div class=" con1">13 ~ 14</div>
+        <div class=" con1">14 ~ 15</div>
+        <div class=" con1">15 ~ 16</div>
+        <div class=" con1">16 ~ 17</div>
+    </div>
+    <div class=" calendar">
+        <div class="containerTitle con2" id="day1"></div>
+        <div class="container con2" id="con2_1"></div>
+        <div class="container con2" id="con2_2"></div>
+        <div class="container con2" id="con2_3"></div>
+        <div class="container con2" id="con2_4"></div>
+        <div class="container con2" id="con2_5"></div>
+        <div class="container con2" id="con2_6"></div>
+        <div class="container con2" id="con2_7"></div>
+        <div class="container con2" id="con2_8"></div>
+        <div class="container con2" id="con2_9"></div>
+    </div>
+    <div class=" calendar">
+        <div class="containerTitle con2" id="day2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+    </div>
+    <div class=" calendar">
+        <div class="containerTitle con2" id="day3"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+    </div>
+    <div class=" calendar">
+        <div class="containerTitle con2" id="day4"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+    </div>
+    <div class=" calendar">
+        <div class="containerTitle con2" id="day5"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+    </div>
+    <div class=" calendar">
+        <div class="containerTitle con2" id="day6"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+    </div>
+    <div class=" calendar">
+        <div class="containerTitle con2" id="day7"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+        <div class="container con2"></div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+const draggables = document.querySelectorAll(".draggable");
+var containers = document.querySelectorAll(".container");
+containerUpdate();
+
+var date = new Date();
+var year = date.getFullYear();
+var month = date.getMonth() + 1;
+var day = date.getDate();
+
+for(var i = 1; i<=7; i++){
+    document.getElementById("day"+i).innerHTML = month + "/" + (day);
+    if(i!=7){
+        date.setDate(date.getDate()+1);
+        month = date.getMonth() + 1;
+        day = date.getDate();
+    }
+}
+
+
+$(".calendar").on('dblclick', '.draggable', function() {
+    var userInput = prompt("예상 소요 시간을 적어주세요"+"");
+    var thisDiv = $(this).parent().attr('id');
+
+
+    if(userInput>0 && userInput<=9){
+        var height = userInput*25 + (userInput-1)*2;
+        $(this).css("height", height);
+        for(var i = 1; i<=userInput; i++){
+            // var addClassDiv = 'con2_'+i;
+            // console.log(addClassDiv);
+            // addClassDiv.classList.remove("container");
+
+        }
+    }if(userInput>9){
+        alert('최대 9시간까지 입력 하실 수 있습니다.');
+    }
+});
+addClassDrag();
+function lastWeek(){//지난주
+    date.setDate(date.getDate()-14);
+    for(var i = 1; i<=7; i++){
+        month = date.getMonth() + 1;
+        date.setDate(date.getDate()+1);
+        day = date.getDate();
+        document.getElementById("day"+i).innerHTML = month + "/" + day;
+    }
+}
+function nextWeek(){//다음주
+    for(var i = 1; i<=7; i++){
+        date.setDate(date.getDate()+1);
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        document.getElementById("day"+i).innerHTML = month + "/" + day;
+    }
+}
+function addBtn(){
+    var content = document.getElementById("content").value;
+    $(".ltemList").append('<div class="draggable addItem">'+content+'</div>');
+    $('.addItem').prop("draggable",true);
+    addClassDrag();
+}
+function addLun(){
+    $(".ltemList").append('<div class="draggable addLun">점심</div>');
+    $('.addLun').prop("draggable",true);
+    addClassDrag();
+}
+function addSet(){
+    $(".ltemList").append('<div class="draggable addSet" >집합</div>');
+    $('.addSet').prop("draggable",true);
+    addClassDrag();
+}
+function addDin(){
+    $(".ltemList").append('<div class="draggable addDin">저녁</div>');
+    $('.addDin').prop("draggable",true);
+    addClassDrag();
+}
+function addClassDrag(){
+    var draggables = document.querySelectorAll(".draggable");
+
+    draggables.forEach(draggable => {
+        // 드래그 시작하면 dragging이라는 클래스를 줌
+        draggable.addEventListener("dragstart", () => {
+            draggable.classList.add("dragging");
+        });
+        // 드래그 끝나면 dragging이라는 클래스 삭제
+        draggable.addEventListener("dragend", () => {
+            draggable.classList.remove("dragging");
+            containerUpdate();
+        });
+    });
+}
+
+function containerUpdate(){
+    containers = document.querySelectorAll(".container");
+    console.log(containers.length)
+    containers.forEach(container => {
+
+        container.addEventListener("dragover", e => { //드래그하면서 마우스가 대상 객체의 영역 위에 자리 잡고 있을 때 
+            e.preventDefault();
+            const afterElement = a(container, e.clientX);
+            const draggable = document.querySelector(".dragging");
+            if(container.classList.contains('container')){// 해당 div에 container라는 클래스가 있을 때에만 드래그가 되도록 함
+                container.insertBefore(draggable, afterElement);
+            }
+        });
+        container.addEventListener('dragend',() => { //드래그가 끝나면 해당 div에 다시 드래그 하지 못하도록 함
+            container.classList.remove("container");
+        })
+        container.addEventListener('dragstart',() => { 
+            container.classList.add("container");
+        })
+    });
+}
+function a(b, c){
+     
+}
+
+</script>
